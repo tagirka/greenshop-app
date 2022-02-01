@@ -1,0 +1,29 @@
+.navItem {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+
+  border-bottom: 2px solid transparent;
+
+  padding: 20px 0;
+
+  transition: 0.2s all;
+}
+
+.navItemActive {
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+}
+
+.navItem:hover {
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+
+  grid-gap: 0 50px;
+}

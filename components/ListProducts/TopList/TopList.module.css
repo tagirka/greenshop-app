@@ -1,0 +1,33 @@
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0 34px;
+}
+
+.menuItem {
+  padding-bottom: 7px;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 16px;
+
+  color: var(--black);
+  transition: all 0.3s linear;
+}
+
+.menuItemActive {
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+
+.menuItem:hover,
+.menuItem:active {
+  color: var(--primary);
+  /*font-weight: bold;*/
+
+  border-bottom: 1px solid var(--primary);
+}

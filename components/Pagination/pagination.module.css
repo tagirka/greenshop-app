@@ -1,0 +1,33 @@
+.pagination {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.wrapper {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.element {
+  /*display: inline-block;*/
+  cursor: pointer;
+  padding: 10px 14px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 16px;
+
+  color: var(--black);
+}
+
+.elementActive {
+  background: var(--primary);
+
+  font-weight: bold;
+  color: var(--white);
+}

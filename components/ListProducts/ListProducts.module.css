@@ -1,0 +1,33 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr min-content;
+
+  grid-template-areas:
+    " top"
+    " body";
+
+  grid-gap: 30px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  max-height: 50px;
+}
+
+.body {
+  /*max-height: 840px;*/
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 260px));
+  grid-template-rows: repeat(3, minmax(150px, 360px));
+  justify-content: space-between;
+
+  grid-gap: 20px;
+  /*grid-auto-flow: row;*/
+}
+
+.pagination {
+}

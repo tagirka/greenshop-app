@@ -1,0 +1,14 @@
+.contactsItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ico {
+  color: var(--primary);
+}

@@ -1,0 +1,181 @@
+{
+  "menuitem": [
+    {
+      "_id": 1,
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "_id": 2,
+      "title": "Shop",
+      "link": "/shop"
+    },
+    {
+      "_id": 3,
+      "title": "Care",
+      "link": "/care"
+    },
+    {
+      "_id": 4,
+      "title": "Blogs",
+      "link": "/blog"
+    }
+  ],
+  "product": [
+    {
+      "_id": "1",
+      "title": "title 1",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "1", "title": "House Plants" },
+        { "_id": "6", "title": "Terrariums" }
+      ],
+      "size": { "_id": "1", "title": "Small" }
+    },
+    {
+      "_id": "2",
+      "title": "title 2",
+      "image": "/product3.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "1", "title": "House Plants" },
+        { "_id": "55", "title": "House Plants" },
+        { "_id": "6", "title": "Terrariums" }
+      ],
+      "size": { "_id": "1", "title": "Small" }
+    },
+    {
+      "_id": "3",
+      "title": "title 3",
+      "image": "/product4.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "1", "title": "House Plants" },
+        { "_id": "6", "title": "Terrariums" }
+      ],
+      "size": { "_id": "1", "title": "Small" }
+    },
+    {
+      "_id": "4",
+      "title": "title 4",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "4", "title": "Bid Plants" },
+        { "_id": "8", "title": "Accessories" }
+      ],
+      "size": { "_id": "2", "title": "Medium" }
+    },
+    {
+      "_id": "5",
+      "title": "title 5",
+      "image": "/product4.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "1", "title": "House Plants" },
+        { "_id": "6", "title": "Terrariums" }
+      ],
+      "size": { "_id": "1", "title": "Small" }
+    },
+    {
+      "_id": "6",
+      "title": "title6 ",
+      "image": "/product4.png",
+      "cost": 199.0,
+      "categories": [
+        { "_id": "1", "title": "House Plants" },
+        { "_id": "6", "title": "Terrariums" }
+      ],
+      "size": { "_id": "1", "title": "Small" }
+    },
+    {
+      "_id": "7",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["6", "8", "2"],
+      "sizeID": "1"
+    },
+    {
+      "_id": "8",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["1", "3", "5"],
+      "sizeID": "1"
+    },
+    {
+      "_id": "9",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["8", "4", "2"],
+      "sizeID": "3"
+    },
+    {
+      "_id": "10",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["1", "6"],
+      "sizeID": "1"
+    },
+    {
+      "_id": "11",
+      "title": "title",
+      "image": "/product4.png",
+      "cost": 199.0,
+      "categoriesID": ["4", "8"],
+      "sizeID": "3"
+    },
+    {
+      "_id": "12",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["7", "8", "5"],
+      "sizeID": "1"
+    },
+    {
+      "_id": "13",
+      "title": "title",
+      "image": "/product3.png",
+      "cost": 199.0,
+      "categoriesID": ["2", "4", "1"],
+      "sizeID": "1"
+    },
+    {
+      "_id": "14",
+      "title": "title",
+      "image": "/product2.png",
+      "cost": 199.0,
+      "categoriesID": ["6", "8", "2"],
+      "sizeID": "1"
+    }
+  ],
+  "sale": [
+    {
+      "_id": "1",
+      "productID": "1",
+      "dateStart": "",
+      "dateEnd": "",
+      "costOnSale": 120.99
+    }
+  ],
+  "category": [
+    { "_id": "1", "title": "House Plants" },
+    { "_id": "2", "title": "Potter Plants" },
+    { "_id": "3", "title": "Seeds" },
+    { "_id": "4", "title": "Bid Plants" },
+    { "_id": "5", "title": "Succulents" },
+    { "_id": "6", "title": "Terrariums" },
+    { "_id": "7", "title": "Gardening" },
+    { "_id": "8", "title": "Accessories" }
+  ],
+  "size": [
+    { "_id": "1", "title": "Small" },
+    { "_id": "2", "title": "Medium" },
+    { "_id": "3", "title": "Large" }
+  ]
+}

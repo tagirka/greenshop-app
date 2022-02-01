@@ -1,0 +1,17 @@
+.tag {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 50%;
+  min-height: 1rem;
+  min-width: 1.4rem;
+
+  background: var(--primary);
+  color: var(--white);
+
+  text-align: center;
+  /*text-transform: uppercase;*/
+  font-size: 10px;
+  /*line-height: 13px;*/
+  font-weight: 500;
+}

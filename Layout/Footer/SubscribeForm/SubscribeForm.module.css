@@ -1,0 +1,43 @@
+.input {
+  padding: 12px;
+
+  border-radius: 6px 0 0 6px;
+  box-sizing: border-box;
+}
+
+.input:focus-visible {
+  outline: 1px solid var(--primary) !important;
+}
+
+.inputWrapper {
+  display: block;
+  width: 100%;
+}
+
+.button {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 12px 20px;
+
+  text-align: center;
+
+  border-radius: 0 6px 6px 0;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: none;
+
+  color: var(--white);
+  border: none;
+  background: var(--primary);
+}
+
+.description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 22px;
+
+  color: var(--gray);
+}

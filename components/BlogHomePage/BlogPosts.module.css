@@ -1,0 +1,30 @@
+.wrapper {
+  display: grid;
+
+  grid-template: minmax(120px, 450px) / repeat(4, 1fr);
+  grid-gap: 35px;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0 0 10px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+
+  text-align: center;
+
+  color: var(--black);
+}
+
+.subtitle {
+  margin: 0 0 25px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  text-align: center;
+
+  color: var(--gray);
+}

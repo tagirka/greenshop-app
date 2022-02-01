@@ -1,0 +1,23 @@
+.itemsList {
+  padding-left: 10px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 40px;
+  cursor: pointer;
+
+  color: var(--black);
+}
+
+.listItem:hover,
+.listItem:active,
+.listItemActive {
+  font-weight: bold;
+  color: var(--primary);
+}
