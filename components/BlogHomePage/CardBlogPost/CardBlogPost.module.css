@@ -1,0 +1,45 @@
+.body {
+  min-height: 200px;
+  padding: 9px 15px;
+  background: var(--lightgray);
+}
+
+.bodyTop {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: var(--primary);
+}
+
+.title {
+  margin: 4px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: var(--black);
+}
+
+.description {
+  /*margin: 4px;*/
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  /* or 157% */
+
+  color: var(--gray);
+}
+
+.bottom {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: var(--black);
+}

@@ -1,0 +1,64 @@
+.footer {
+  border-bottom: 1px solid var(--lightPrimary);
+  margin-bottom: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, 350px);
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas:
+    "top subscribe"
+    "contacts contacts"
+    "bottom social";
+}
+
+.contacts {
+  padding: 27px 23px;
+  grid-area: contacts;
+  background: rgba(70, 163, 88, 0.1);
+  border-top: 1px solid var(--lightPrimary);
+  border-bottom: 1px solid var(--lightPrimary);
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 240px)) minmax(250px, 350px);
+  gap: 30px;
+  justify-items: start;
+  align-items: center;
+}
+
+.top {
+  grid-area: top;
+}
+
+.bottom {
+  grid-area: bottom;
+}
+
+.bottom,
+.top {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 240px));
+  gap: 30px;
+
+  padding: 25px;
+}
+
+.subscribe {
+  grid-area: subscribe;
+}
+
+.social {
+  grid-area: social;
+}
+
+.subscribe,
+.social {
+  padding: 25px 25px 25px 0;
+}
+
+.subscribe,
+.social,
+.top,
+.bottom {
+  background: var(--lightgray);
+}

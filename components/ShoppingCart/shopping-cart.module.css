@@ -1,0 +1,11 @@
+.cart {
+  position: relative;
+}
+
+.cartPoint {
+  position: absolute;
+  left: 60%;
+  top: -15%;
+
+  border: 2px solid var(--white);
+}

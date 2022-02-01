@@ -1,0 +1,42 @@
+.wrapper {
+  display: grid;
+
+  grid-template-columns: 310px 1fr;
+  grid-template-rows: 500px 1fr 100px 300px 550px;
+
+  grid-template-areas:
+    "carousel carousel "
+    "sidebar main "
+    "pagination pagination "
+    "detailed detailed "
+    "blog blog ";
+
+  gap: 20px;
+}
+
+.main {
+  grid-area: main;
+  /*min-height: 1190px;*/
+}
+.carousel {
+  grid-area: carousel;
+}
+.sideBar {
+  grid-area: sidebar;
+}
+
+.pagination {
+  grid-area: pagination;
+}
+
+.detailed {
+  /*margin-top: 150px;*/
+  grid-area: detailed;
+}
+
+.blog {
+  grid-area: blog;
+}
+
+.promotion {
+}

@@ -1,0 +1,90 @@
+.cardItem {
+  /*width: min-content;*/
+}
+
+.cardBody {
+  position: relative;
+  min-height: 300px;
+  background: var(--lightgray);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  mix-blend-mode: multiply;
+}
+
+.sale {
+  position: absolute;
+  top: 24px;
+  left: 0;
+}
+
+.costOnSale {
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 16px;
+
+  color: #a5a5a5;
+
+  text-decoration: line-through;
+}
+
+.icons {
+  /*color: transparent;*/
+
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: inline-flex;
+  justify-content: center;
+  grid-gap: 26px;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.icons:hover {
+  color: var(--black);
+}
+
+.icons > svg {
+  transition: 0.2s all linear;
+}
+
+.icons > svg:hover {
+  color: var(--primary);
+}
+
+.cardBottom {
+  padding: 12px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: var(--black);
+}
+
+.cardBottom p {
+  margin: 0;
+}
+
+.cardBottom .title {
+  padding: 6px 0;
+}
+
+.cardBottom .cost {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 16px;
+
+  color: var(--primary);
+}

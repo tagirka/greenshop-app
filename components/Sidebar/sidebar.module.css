@@ -1,0 +1,29 @@
+.sidebar {
+  /*max-height: 1200px;*/
+  background: var(--lightgray);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  gap: 20px;
+}
+
+.menuWrapper {
+  padding: 14px 18px;
+}
+
+.ranger {
+  margin-bottom: 46px;
+}
+
+.ranger span {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 40px;
+}
+
+.ranger button {
+  margin-top: 10px;
+}

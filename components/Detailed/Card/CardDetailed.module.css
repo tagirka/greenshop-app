@@ -1,0 +1,53 @@
+.card {
+  position: relative;
+
+  padding: 30px;
+  height: 250px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  align-items: center;
+
+  background: var(--lightgray);
+}
+
+.left {
+  position: absolute;
+  bottom: 40px;
+  left: -30px;
+}
+
+.image {
+  mix-blend-mode: multiply;
+}
+
+.right {
+  width: 50%;
+  text-align: right;
+}
+
+.right .buttonDetailed {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px;
+
+  text-transform: uppercase;
+
+  color: var(--black);
+}
+
+.description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: var(--gray);
+}
