@@ -14,12 +14,17 @@ interface SaleReqParams {
 const getStrictSale = (saleProduct: SaleModel[]): SaleModelStrict[] => {
   if (!saleProduct.length) return [];
 
-  return saleProduct.map((s) => ({
-    productID: s.product._id,
-    cost: s.product.cost,
-    costOnSale: s.costOnSale,
-    costOnSalePercent: s.costOnSalePercent,
-  }));
+  return saleProduct
+    .filter((s) => {
+      if (s.costOnSalePercent) return true;
+      return s.product.cost > s.costOnSale;
+    })
+    .map((s) => ({
+      productID: s.product._id,
+      cost: s.product.cost,
+      costOnSale: s.costOnSale,
+      costOnSalePercent: s.costOnSalePercent,
+    }));
 };
 
 //http://localhost:3000/api/sale?product._id=???? product._id

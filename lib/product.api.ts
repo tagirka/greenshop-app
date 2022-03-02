@@ -1,11 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import * as qs from "qs";
 
-import {
-  ProductModel,
-  SaleModelStrict,
-  ViewProductModel,
-} from "../interfaces/product.interface";
+import { ProductModel } from "../interfaces/product.interface";
 import { getStrictProduct } from "./products.util";
 import { pointAPI } from "./point.api";
 
@@ -27,7 +22,7 @@ export const routeAPI = {
 
   getProductById: async (id: string) => {
     const { data, status } = await axios.get(
-      `${pointAPI.apiPaths.getProducts()}/${id}`
+      `${pointAPI.apiPaths.getProducts}/${id}`
     );
 
     return { data };

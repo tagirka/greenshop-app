@@ -1,10 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import {
-  ProductModel,
-  ViewProductModel,
-} from "../../../interfaces/product.interface";
-import { routeAPI } from "../../../lib/product.api";
+import { ProductModel } from "../../../interfaces/product.interface";
+
 import axios from "axios";
 import { pointAPI } from "../../../lib/point.api";
 

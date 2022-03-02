@@ -3,6 +3,11 @@ export interface CategoryModel {
   title: string;
 }
 
+export interface ShortSize {
+  _id: string;
+  title: "S" | "M" | "L" | "XL";
+}
+
 export interface CategoryModelCount extends CategoryModel {
   count: number;
 }
@@ -10,6 +15,7 @@ export interface CategoryModelCount extends CategoryModel {
 export interface SizeModel {
   _id: string;
   title: string;
+  short: string;
 }
 
 export interface SizeModelCount extends SizeModel {
@@ -35,14 +41,75 @@ export interface SaleModelStrict {
 export interface ProductModel {
   _id: string;
   title: string;
-  image: string;
+  image?: string;
   cost: number;
   categories: CategoryModel[];
   size: SizeModel[];
+  rating?: RatingProductModel | null;
+  description?: string;
+  review?: ReviewModel[] | null;
+  sku?: string;
+  editable?: boolean;
+}
+
+export interface RatingModel {
+  date?: string;
+  count: number;
+  user?: string;
+}
+
+export interface RatingProductModel {
+  _id: string;
+  product: ProductModel;
+  rating: RatingModel;
+}
+
+export interface DescriptionProductModel {
+  _id: string;
+  product: string;
+  short: string;
+  full?: string;
+}
+
+export interface RatingProductStrictModel {
+  _id: string;
+  product: string;
+  rating: RatingModel;
 }
 
 export interface ViewProductModel extends ProductModel {
   sale?: boolean;
   costOnSale?: number | null | undefined;
   costOnSalePercent?: number | null;
+}
+
+export interface UserModel {
+  _id: string;
+  email: string;
+  password: string;
+}
+
+export interface ReviewModel {
+  _id: string;
+  title: string;
+  user: UserModel;
+  review: string;
+}
+
+export interface CartModel {
+  _id: string;
+  table: CartItemModel[];
+  order: {
+    date?: string;
+    user?: string;
+    count: number;
+    sum: number;
+  };
+}
+
+export interface CartItemModel {
+  product: ProductModel;
+  size: SizeModel;
+  count: number;
+  sum?: number;
 }

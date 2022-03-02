@@ -1,0 +1,39 @@
+.title {
+  margin: 10px 0;
+}
+
+.groupIconSize {
+  width: 100%;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  grid-gap: 10px;
+
+  margin-bottom: 22px;
+}
+
+.iconSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  /*padding: 6px 8px;*/
+  border: 1px solid var(--border-gray);
+  border-radius: 50%;
+
+  color: var(--gray);
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.iconSizeActive,
+.iconSize:hover,
+.iconSize:active {
+  border-color: var(--primary);
+}

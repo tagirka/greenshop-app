@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "json-server": "json-server --watch --port 3200 --delay 10 data-json/data.json",
-    "json-server-01": "json-server --watch --port 3200 --delay 10 data-json/data.js"
+    "json-server-01": "json-server --watch --port 3200 --delay 100 data-json/data.js"
   },
   "dependencies": {
     "axios": "^0.24.0",

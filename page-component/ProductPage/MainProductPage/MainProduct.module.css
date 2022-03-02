@@ -1,0 +1,38 @@
+.menu {
+  display: inline-flex;
+  justify-content: flex-start;
+  grid-gap: 38px;
+
+  width: 100%;
+
+  border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+}
+
+.menuItem {
+  padding: 10px 0;
+  font-size: 17px;
+  line-height: 16px;
+  transition: all 0.1s linear;
+}
+
+.activeItemMenu,
+.menuItem:active {
+  font-weight: 700;
+  color: var(--primary);
+
+  border-bottom: 3px solid var(--primary);
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
+
+.description {
+}
+
+.reviews {
+}

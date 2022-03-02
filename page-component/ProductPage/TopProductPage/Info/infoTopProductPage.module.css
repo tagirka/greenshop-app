@@ -1,0 +1,41 @@
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 16px;
+}
+
+.line {
+  border: 0.3px solid rgba(70, 163, 88, 0.5);
+}
+
+.subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  color: var(--gray);
+}
+.rating {
+  display: inline-flex;
+}
+
+.shortDescription h4 {
+  margin: 10px 0;
+}
+
+.skuGroup {
+  margin-bottom: 18px;
+}
+
+.shareLinks {
+  display: inline-flex;
+  align-items: center;
+  grid-gap: 16px;
+}
