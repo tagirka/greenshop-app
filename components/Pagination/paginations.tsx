@@ -8,9 +8,10 @@ import { RootAction } from "../../reduce/root.action";
 import { AppContext } from "../../context/appContext";
 import { PaginationRender } from "./PaginationRender";
 import { createArray } from "../../lib/utils";
+import { HomeContext, IHomeContext } from "../../context/homePageContext";
 
-const startPage = (limit: number, activePage: number) => {
-  return limit * (Math.ceil(activePage / limit) - 1) + 1;
+const startPage = (limit = 4, activePage = 1, sign = 1) => {
+  return Math.ceil(activePage / limit) * limit - (limit - 1);
 };
 
 const Pagination = ({
@@ -27,28 +28,43 @@ const Pagination = ({
     ],
   } = useContext(AppContext);
 
+  const { useActivePage } = useContext<IHomeContext>(HomeContext);
+
   const onSelect = (i: number | "next" | "prev") => {
     switch (i) {
       case "next": {
-        dispatch(RootAction.nextPagesPagination(limit));
+        useActivePage.setActivePage(
+          startPage(limit, useActivePage.activePage + limit)
+        );
+        // dispatch(RootAction.nextPagesPagination(limit));
 
         return;
       }
       case "prev": {
-        dispatch(RootAction.prevPagesPagination(limit));
+        // dispatch(RootAction.prevPagesPagination(limit));
+
+        useActivePage.setActivePage(
+          startPage(
+            limit,
+            useActivePage.activePage - limit
+              ? useActivePage.activePage - limit
+              : 1
+          )
+        );
 
         return;
       }
 
       default:
-        dispatch(RootAction.selectPagePagination(i));
+        // dispatch(RootAction.selectPagePagination(i));
+        useActivePage.setActivePage(i);
     }
   };
 
   return (
     <section className={[className, styles.pagination].join(" ")} {...props}>
       <div className={styles.wrapper}>
-        {Page > limit && (
+        {useActivePage.activePage > limit && (
           <PaginationRender onSelected={() => onSelect("prev")}>
             <FaAngleLeft />
           </PaginationRender>
@@ -57,11 +73,16 @@ const Pagination = ({
         {createArray(limit).map((p, idx) => {
           return (
             <PaginationRender
-              onSelected={() => onSelect(idx + startPage(limit, Page))}
+              onSelected={() =>
+                onSelect(idx + startPage(limit, useActivePage.activePage))
+              }
               key={idx}
-              select={Page === idx + startPage(limit, Page)}
+              select={
+                useActivePage.activePage ===
+                idx + startPage(limit, useActivePage.activePage)
+              }
             >
-              {idx + startPage(limit, Page)}
+              {idx + startPage(limit, useActivePage.activePage)}
             </PaginationRender>
           );
         })}

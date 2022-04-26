@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { pointAPI } from "../../../lib/point.api";
+import { api } from "../../../lib/point.api";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const params = req.query;
@@ -12,7 +12,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const { data: products, status } = await axios(
-      pointAPI.products.pointGetProducts(),
+      api.products.pointGetProducts(),
       {
         params,
       }

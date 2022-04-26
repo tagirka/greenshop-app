@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import { ProductModel } from "../interfaces/product.interface";
 import { getStrictProduct } from "./products.util";
-import { pointAPI } from "./point.api";
+import { api } from "./point.api";
 
 export const RequestOption = {
   headers: {
@@ -13,7 +13,7 @@ export const RequestOption = {
 export const routeAPI = {
   getAllProducts: async () => {
     const { data: products, status } = await axios.get<ProductModel[]>(
-      pointAPI.products.pointGetProducts()
+      api.products.pointGetProducts()
     );
     if (status !== 200) throw Error();
 
@@ -21,9 +21,7 @@ export const routeAPI = {
   },
 
   getProductById: async (id: string) => {
-    const { data, status } = await axios.get(
-      `${pointAPI.apiPaths.getProducts}/${id}`
-    );
+    const { data, status } = await axios.get(`${api.paths.getProducts}/${id}`);
 
     return { data };
   },

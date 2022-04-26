@@ -5,46 +5,80 @@ import { ListProductsProps } from "./ListProducts.props";
 import styles from "./ListProducts.module.css";
 
 import CardProduct from "./CardProduct/CardProduct";
-import { AppContext, IAppContext } from "../../context/appContext";
 
 import { ViewProductModel } from "../../interfaces/product.interface";
 
 import { ListProductViewSelect, TopList } from "./TopList/TopList";
-import { getProductsWithSelected } from "../../lib/getProductsWithSelected.api";
+import {
+  getProductsWithSelected,
+  getViewProducts,
+} from "../../lib/getProductsWithSelected.api";
 import { getProductsOnSale } from "../../lib/getProductsOnSale.api";
+import { HomeContext } from "../../context/homePageContext";
 
 const ListProducts: FC<ListProductsProps> = ({ className, products }) => {
+  // const {
+  //   store: [
+  //     {
+  //       productState: { activePage },
+  //     },
+  //     dispatch,
+  //   ],
+  // } = useContext<IAppContext>(AppContext);
+
   const {
-    store: [
-      {
-        productState: { selectCategory, selectSize, activePage },
-      },
-      dispatch,
-    ],
-  } = useContext<IAppContext>(AppContext);
+    useCategory: { selectCategory },
+    useSize: { selectSize },
+    useActivePage: { activePage },
+  } = useContext(HomeContext);
 
   const [viewProducts, setViewProducts] = useState<ViewProductModel[]>([
     ...products,
   ]);
 
   const [selectView, setSelectView] = useState(ListProductViewSelect.all);
+  // const [selectView, setSelectView] = useState(ListProductViewSelect.default);
 
   const handleViewSelect = (select: ListProductViewSelect) => {
     setSelectView(select);
   };
 
+  const getDataFirstPage = async () => {
+    const viewStaticProducts = await getViewProducts(
+      products.slice(
+        0,
+        process.env.NEXT_PUBLIC_ITEMS_ON_PAGE
+          ? +process.env.NEXT_PUBLIC_ITEMS_ON_PAGE
+          : 9
+      )
+    );
+    setViewProducts(viewStaticProducts);
+  };
+
+  const getDataSelectedPage = async () => {
+    const selectedProducts = await getProductsWithSelected(
+      [
+        !selectCategory ? null : selectCategory?._id,
+        !selectSize ? null : selectSize?._id,
+      ],
+      activePage.toString()
+    );
+    setViewProducts(selectedProducts);
+  };
+
   useEffect(() => {
     switch (selectView) {
       case ListProductViewSelect.all: {
+        if (activePage === 1 && selectCategory === selectSize) {
+          (async () => {
+            await getDataFirstPage();
+          })();
+
+          break;
+        }
+
         (async () => {
-          const selectedProducts = await getProductsWithSelected(
-            [
-              !selectCategory ? null : selectCategory?._id,
-              !selectSize ? null : selectSize?._id,
-            ],
-            activePage.toString()
-          );
-          setViewProducts(selectedProducts);
+          await getDataSelectedPage();
         })();
 
         break;
@@ -65,8 +99,20 @@ const ListProducts: FC<ListProductsProps> = ({ className, products }) => {
 
         break;
 
-      default:
-        setViewProducts(products);
+      case ListProductViewSelect.default:
+        (async () => {
+          const viewProducts = await getViewProducts(
+            products.slice(
+              0,
+              process.env.NEXT_PUBLIC_ITEMS_ON_PAGE
+                ? +process.env.NEXT_PUBLIC_ITEMS_ON_PAGE
+                : 9
+            )
+          );
+          setViewProducts(viewProducts);
+        })();
+
+        break;
     }
   }, [selectCategory, selectSize, activePage, selectView]);
 

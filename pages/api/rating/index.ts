@@ -5,7 +5,7 @@ import {
   SaleModel,
   SaleModelStrict,
 } from "../../../interfaces/product.interface";
-import { pointAPI } from "../../../lib/point.api";
+import { api } from "../../../lib/point.api";
 import * as qs from "qs";
 
 interface ReqParams {
@@ -30,7 +30,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const { data: ratingProduct, status } = await axios.get<
       RatingProductModel[]
-    >(pointAPI.products.pointGetRatingProducts(), {
+    >(api.products.pointGetRatingProducts(), {
       params,
       paramsSerializer: (params) =>
         qs.stringify(params, { arrayFormat: "repeat" }),

@@ -8,6 +8,7 @@ export const enum ListProductViewSelect {
   all = "All plants",
   new = "New Arrival",
   sale = "Sale",
+  default = "Default",
 }
 
 const TopMenu = [

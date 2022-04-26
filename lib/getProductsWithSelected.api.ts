@@ -3,20 +3,16 @@ import {
   SaleModelStrict,
   ViewProductModel,
 } from "../interfaces/product.interface";
-import { pointAPI } from "./point.api";
+import { api } from "./point.api";
 import * as qs from "qs";
-
-interface RequestType {
-  url: string;
-  config: AxiosRequestConfig;
-}
+import { getRequest } from "./getRequest";
 
 export const getProductsWithSelected = async (
   selected: (string | null)[],
   _page = "1",
   _limit = process.env.NEXT_PUBLIC_ITEMS_ON_PAGE || "9"
 ) => {
-  const request = getRequest(selected, _page, _limit);
+  const request = getRequest(api.paths.getProducts, selected, _page, _limit);
 
   const { data: products, status } = await axios.get<ViewProductModel[]>(
     request.url,
@@ -30,33 +26,7 @@ export const getProductsWithSelected = async (
   return await getViewProducts(products);
 };
 
-const getRequest = (
-  selected: (string | null)[],
-  _page: string,
-  _limit: string
-): RequestType => {
-  const q = selected.filter((s) => !!s);
-
-  return !q.length
-    ? {
-        url: pointAPI.apiPaths.getProducts,
-        config: { params: { _page, _limit } },
-      }
-    : {
-        url: pointAPI.apiPaths.getSearch,
-        config: {
-          params: {
-            q,
-            _page,
-            _limit,
-          },
-          paramsSerializer: (params: any) =>
-            qs.stringify(params, { arrayFormat: "repeat" }),
-        },
-      };
-};
-
-const getViewProducts = async (
+export const getViewProducts = async (
   products: ViewProductModel[]
 ): Promise<ViewProductModel[]> => {
   return await Promise.all(setResponses(products))
@@ -64,12 +34,13 @@ const getViewProducts = async (
       return res
         .filter((r) => r.status === 200)
         .filter((r) => r.data.length)
-        .map((r) => r.data.shift());
+        .map((r) => r.data[0]);
     })
-    .then((data) => {
-      if (!data || !data.length) return noSalesProducts(products);
+    .then((saleProducts) => {
+      if (!saleProducts || !saleProducts.length)
+        return noSalesProducts(products);
 
-      return setViewProducts(products, data);
+      return setViewProducts(products, saleProducts);
     })
     .catch((err) => {
       console.log(err);
@@ -85,18 +56,18 @@ const setResponses = (
 ): Promise<AxiosResponse<SaleModelStrict[]>>[] => {
   return products.map((p) => {
     return axios.get<SaleModelStrict[]>(
-      `${pointAPI.apiPaths.getSaleProducts}?product._id=${p._id}`
+      `${api.paths.getSaleProducts}?product._id=${p._id}`
     );
   });
 };
 
 const setViewProducts = (
   products: ViewProductModel[],
-  data: (SaleModelStrict | undefined)[]
+  saleProducts: (SaleModelStrict | undefined)[]
 ) => {
   return products
     .map((p) => {
-      const sale = data.find((s) => s?.productID === p._id);
+      const sale = saleProducts.find((s) => s?.productID === p._id);
 
       if (!sale) {
         return { ...p, costOnSale: null, costOnSalePercent: null, sale: false };

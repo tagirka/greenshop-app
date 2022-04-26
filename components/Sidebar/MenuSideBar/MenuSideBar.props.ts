@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import {
-  CategoryModelCount,
-  SizeModelCount,
+   CategorySizeModel, SizeModel,
+
 } from "../../../interfaces/product.interface";
 
 export interface IMenuSideBar {
@@ -13,6 +13,8 @@ export interface MenuSideBarProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   title: string;
   selectItem: string | null;
-  dataList: CategoryModelCount[] | SizeModelCount[];
-  handleClick: (item: any) => void;
+  dataList: CategorySizeModel[] | SizeModel[];
+  handleClick: (item: CategorySizeModel | null) => void
+
+
 }

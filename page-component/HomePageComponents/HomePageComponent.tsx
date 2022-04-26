@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { HomePageProps } from "./HomePage.props";
 import styles from "./HomePage.module.css";
 import Carousel from "../../components/Carousel/carousel";
@@ -12,7 +12,6 @@ export const HomePageComponent: FC<HomePageProps> = ({
   products,
   categories,
   sizes,
-  ...props
 }) => {
   return (
     <article className={styles.wrapper}>

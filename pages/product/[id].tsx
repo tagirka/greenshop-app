@@ -37,7 +37,8 @@ import { ProductContext, ProductProvider } from "../../context/productContext";
 //   }
 // };
 //
-// export const getStaticProps: GetStaticProps = async () => {
+// export const getStaticProps: GetStaticProps = async ({params: {id}) => {
+//    console.log(id)
 //   return {
 //     props: {
 //       data: true,

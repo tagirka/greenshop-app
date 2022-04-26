@@ -4,17 +4,18 @@ import type { GetStaticProps } from "next";
 import { withLayout } from "../Layout/layout";
 
 import {
-  CategoryModelCount,
+  CategorySizeModel,
   ProductModel,
-  SizeModelCount,
+  SizeModel,
 } from "../interfaces/product.interface";
 import HomePageComponent from "../page-component/HomePageComponents/HomePageComponent";
 import { getStaticAPI } from "../lib/static.api";
+import { HomeProvider, initialHomeContext } from "../context/homePageContext";
 
 export interface IHomeProps extends Record<string, unknown> {
   products: ProductModel[];
-  categories: CategoryModelCount[];
-  sizes: SizeModelCount[];
+  categories: CategorySizeModel[];
+  sizes: SizeModel[];
 }
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async (ctx) => {
@@ -45,11 +46,15 @@ export const getStaticProps: GetStaticProps<IHomeProps> = async (ctx) => {
 
 const Home: FC<IHomeProps> = ({ products, categories, sizes }: IHomeProps) => {
   return (
-    <HomePageComponent
-      products={products}
-      categories={categories}
-      sizes={sizes}
-    />
+    <>
+      <HomeProvider {...initialHomeContext}>
+        <HomePageComponent
+          products={products}
+          categories={categories}
+          sizes={sizes}
+        />
+      </HomeProvider>
+    </>
   );
 };
 

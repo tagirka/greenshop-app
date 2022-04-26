@@ -1,3 +1,8 @@
+import {
+  CategorySizeModel,
+  SizeModel,
+} from "../../interfaces/product.interface";
+
 export enum ProductActionType {
   fill = "PRODUCT.FILL",
   selectPagePagination = "PRODUCT.PAGE.PAGINATION.SELECT",
@@ -10,24 +15,24 @@ export enum ProductActionType {
 
 export const ProductAction = {
   resetProduct: <ActionType>() => ({ type: ProductActionType.reset }),
-  selectPagePagination: <ActionType>(selectPageIdx: number) => ({
-    type: ProductActionType.selectPagePagination,
-    payload: selectPageIdx,
-  }),
-  nextPagesPagination: <ActionType>(limit: number) => ({
-    type: ProductActionType.nextPagesPagination,
-    payload: limit,
-  }),
-  prevPagesPagination: <ActionType>(limit: number) => ({
-    type: ProductActionType.prevPagesPagination,
-    payload: limit,
-  }),
-  selectCategory: <ActionType>(categoryID: string | null) => ({
-    type: ProductActionType.selectCategoryID,
-    payload: categoryID,
-  }),
-  selectSize: <ActionType>(sizeID: string) => ({
-    type: ProductActionType.selectSizeID,
-    payload: sizeID,
-  }),
+  // selectPagePagination: <ActionType>(selectPageIdx: number) => ({
+  //   type: ProductActionType.selectPagePagination,
+  //   payload: selectPageIdx,
+  // }),
+  // nextPagesPagination: <ActionType>(limit: number) => ({
+  //   type: ProductActionType.nextPagesPagination,
+  //   payload: limit,
+  // }),
+  // prevPagesPagination: <ActionType>(limit: number) => ({
+  //   type: ProductActionType.prevPagesPagination,
+  //   payload: limit,
+  // }),
+  // selectCategory: <ActionType>(categoryID: CategorySizeModel | null) => ({
+  //   type: ProductActionType.selectCategoryID,
+  //   payload: categoryID,
+  // }),
+  // selectSize: <ActionType>(sizeID: SizeModel | null) => ({
+  //   type: ProductActionType.selectSizeID,
+  //   payload: sizeID,
+  // }),
 };

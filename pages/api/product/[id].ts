@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { ProductModel } from "../../../interfaces/product.interface";
 
 import axios from "axios";
-import { pointAPI } from "../../../lib/point.api";
+import { api } from "../../../lib/point.api";
 
 // product/id
 
@@ -15,7 +15,7 @@ const handlerProductPage = async (
 
   try {
     const { data: product, status } = await axios.get<ProductModel[]>(
-      pointAPI.products.pointGetProducts(),
+      api.products.pointGetProducts(),
       {
         params: {
           _id: params.id,

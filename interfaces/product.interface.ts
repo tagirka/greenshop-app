@@ -1,6 +1,16 @@
-export interface CategoryModel {
+// export interface CategoryModel {
+//   _id: string;
+//   title: string;
+// }
+
+export interface CategorySizeModel {
   _id: string;
   title: string;
+  count?: number
+}
+
+export interface SizeModel extends CategorySizeModel{
+  short?: string;
 }
 
 export interface ShortSize {
@@ -8,19 +18,17 @@ export interface ShortSize {
   title: "S" | "M" | "L" | "XL";
 }
 
-export interface CategoryModelCount extends CategoryModel {
-  count: number;
-}
+// export interface CategoryModelCount extends CategoryModel {
+//   count: number;
+// }
 
-export interface SizeModel {
-  _id: string;
-  title: string;
-  short: string;
-}
 
-export interface SizeModelCount extends SizeModel {
-  count: number;
-}
+
+// export interface SizeModelCount extends SizeModel {
+//   count: number;
+// }
+
+
 
 export interface SaleModel {
   _id: string;
@@ -43,7 +51,7 @@ export interface ProductModel {
   title: string;
   image?: string;
   cost: number;
-  categories: CategoryModel[];
+  categories: CategorySizeModel[];
   size: SizeModel[];
   rating?: RatingProductModel | null;
   description?: string;
@@ -112,4 +120,9 @@ export interface CartItemModel {
   size: SizeModel;
   count: number;
   sum?: number;
+}
+
+export interface HotProduct {
+  _id: string;
+  product: ProductModel;
 }

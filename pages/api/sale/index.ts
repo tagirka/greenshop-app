@@ -4,7 +4,7 @@ import {
   SaleModel,
   SaleModelStrict,
 } from "../../../interfaces/product.interface";
-import { pointAPI } from "../../../lib/point.api";
+import { api } from "../../../lib/point.api";
 import * as qs from "qs";
 
 interface SaleReqParams {
@@ -39,7 +39,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     //   : { q: Array.isArray(q) ? q : [q], _page, _limit };
 
     const { data: saleProduct, status } = await axios.get<SaleModel[]>(
-      pointAPI.products.pointGetProductsSale(),
+      api.products.pointGetProductsSale(),
       {
         params,
         paramsSerializer: (params) =>

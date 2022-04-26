@@ -16,6 +16,9 @@ const chance = new Chance();
 // Use Chance here.
 // const my_random_string = chance.string();
 
+const countProducts = 100;
+const hotProducts = 30;
+
 const getUniq = (prefix) => {
   return `${prefix}__${chance.string({
     numeric: true,
@@ -73,8 +76,6 @@ module.exports = () => {
     { _id: getUniq("size"), title: "XLarge", short: "XL" },
   ];
 
-  const countProducts = 100;
-
   const product = [...Array(countProducts)].map((_, idx) => ({
     _id: idx + "__" + chance.string({ numeric: true, length: 8 }),
     title: chance.name({ length: 5 }),
@@ -97,6 +98,11 @@ module.exports = () => {
     costOnSalePercent: !chance.integer({ min: 0, max: 20 })
       ? null
       : chance.integer({ min: 0, max: 20 }),
+  }));
+
+  const hot = [...Array(hotProducts)].map((_, idx) => ({
+    _id: idx + "__" + chance.string({ numeric: true, length: 8 }),
+    product: chance.pickset(product, 1).shift(),
   }));
 
   const rating = [...Array(250)].map((item, idx) => ({

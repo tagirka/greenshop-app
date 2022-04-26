@@ -30,7 +30,7 @@ const stringCost = (
 const CardProduct = ({
   item: {
     _id,
-    image,
+    image = "/product4.png",
     title,
     cost,
     sale,

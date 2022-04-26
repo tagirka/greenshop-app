@@ -1,4 +1,4 @@
-export const pointAPI = {
+export const api = {
   products: {
     pointGetProducts: () => `${process.env.NEXT_PUBLIC_API_DOMAIN}/product`,
     pointGetProductsSale: () => `${process.env.NEXT_PUBLIC_API_DOMAIN}/sale`,
@@ -6,7 +6,7 @@ export const pointAPI = {
       `${process.env.NEXT_PUBLIC_API_DOMAIN}/rating`,
   },
 
-  apiPaths: {
+  paths: {
     getProducts: "/api/product",
     getSearch: "/api/search",
     getSaleProducts: "/api/sale",
