@@ -1,9 +1,6 @@
 import axios from "axios";
 
-import {
-  CategoryModelCount,
-  SizeModelCount,
-} from "../interfaces/product.interface";
+import { CategorySizeModel, SizeModel } from "../interfaces/product.interface";
 
 import { reducerArrayUniqWithCount } from "./utils";
 
@@ -25,7 +22,7 @@ export const getStaticAPI = {
       products
         .filter((p) => p.categories.length > 0)
         .flatMap((p) => [...p.categories])
-        .reduce(reducerArrayUniqWithCount, [] as CategoryModelCount[])
+        .reduce(reducerArrayUniqWithCount, [] as CategorySizeModel[])
         .sort((a: any, b: any) => b.count - a.count)
     );
 
@@ -33,7 +30,7 @@ export const getStaticAPI = {
       products
         .filter((p) => p.size.length > 0)
         .flatMap((p) => [...p.size])
-        .reduce(reducerArrayUniqWithCount, [] as SizeModelCount[])
+        .reduce(reducerArrayUniqWithCount, [] as SizeModel[])
         .sort((a: any, b: any) => b.count - a.count)
     );
 

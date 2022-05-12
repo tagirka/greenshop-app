@@ -1,0 +1,10 @@
+.star {
+  color: var(--star-inactive);
+}
+.starActive {
+  color: var(--star-active);
+}
+
+.reviews {
+  margin-left: 20px;
+}

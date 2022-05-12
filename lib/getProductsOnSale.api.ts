@@ -4,7 +4,7 @@ import {
   SaleModelStrict,
   ViewProductModel,
 } from "../interfaces/product.interface";
-import { pointAPI } from "./point.api";
+import { api } from "./api/point.api";
 import { getProductsWithSelected } from "./getProductsWithSelected.api";
 import * as qs from "qs";
 
@@ -27,7 +27,7 @@ export const getProductsOnSale = async (
       };
 
   const { data: sale } = await axios.get<SaleModelStrict[]>(
-    `${pointAPI.apiPaths.getSaleProducts}`,
+    `${api.paths.getSaleProducts}`,
     {
       params,
       paramsSerializer: (params: any) =>
@@ -43,7 +43,7 @@ const setResponses = (
 ): Promise<AxiosResponse<ViewProductModel>>[] => {
   return sale.map((s) => {
     return axios.get<ProductModel>(
-      `${pointAPI.apiPaths.getProductPath}/${s.productID}`
+      `${api.paths.getProductPath}/${s.productID}`
     );
   });
 };

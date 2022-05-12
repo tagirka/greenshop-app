@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { FC } from "react";
 import Head from "next/head";
-import { AppContextProvider } from "../context/appContext";
+import { AppContextProvider, initialContext } from "../context/appContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient({
@@ -16,15 +16,9 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>GreenShop</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="icon" href="icons/favicon.ico" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <AppContextProvider>
+        <AppContextProvider {...initialContext}>
           <Component {...pageProps} />
         </AppContextProvider>
       </QueryClientProvider>

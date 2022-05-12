@@ -1,0 +1,10 @@
+.view,
+.info {
+  flex-basis: 50%;
+  /*min-height: 450px;*/
+}
+
+/*.view {*/
+/*  display: flex;*/
+/*  gap: 29px;*/
+/*}*/

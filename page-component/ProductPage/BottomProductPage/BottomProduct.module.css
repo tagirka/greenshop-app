@@ -1,0 +1,59 @@
+.titleReletedProducts {
+  font-size: 17px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.line {
+  border: 0.3px solid rgba(70, 163, 88, 0.5);
+}
+
+.reletedProductsCarousel {
+  margin-top: 44px;
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 10px;
+}
+
+.card {
+  background: var(--lightgray);
+}
+
+.imageLine .card {
+  /*margin-bottom: 16px;*/
+}
+
+.image {
+  mix-blend-mode: multiply;
+}
+
+.cardBottom {
+  padding: 12px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: var(--black);
+  background: var(--white);
+}
+
+.cardBottom p {
+  margin: 0;
+}
+
+.cardBottom .title {
+  font-size: 15px;
+  line-height: 16px;
+  padding: 6px 0;
+}
+
+.cardBottom .cost {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: var(--primary);
+}

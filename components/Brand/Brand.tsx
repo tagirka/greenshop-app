@@ -6,13 +6,13 @@ import { AppContext, IAppContext } from "../../context/appContext";
 import { RootAction } from "../../reduce/root.action";
 
 const Brand = ({ ...props }: BrandProps) => {
-  const {
-    store: [, dispatch],
-  } = useContext<IAppContext>(AppContext);
+  // const {
+  //   store: [, dispatch],
+  // } = useContext<IAppContext>(AppContext);
 
   return (
     <Link href="/">
-      <a onClick={() => dispatch(RootAction.resetProduct())}>
+      <a>
         <Image src="/logo.png" alt="brand" width={150} height={35} />
       </a>
     </Link>

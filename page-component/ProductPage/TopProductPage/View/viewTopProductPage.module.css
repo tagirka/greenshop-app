@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  gap: 29px;
+  height: 100%;
+}
+
+.imageLine {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  cursor: pointer;
+  background: var(--lightgray);
+}
+
+.imageLine .card {
+  /*margin-bottom: 16px;*/
+}
+
+.image {
+  mix-blend-mode: multiply;
+}

@@ -1,0 +1,13 @@
+.top {
+  display: flex;
+  grid-gap: 30px;
+  margin-bottom: 92px;
+}
+
+.bottom {
+  margin-bottom: 40px;
+}
+
+.main {
+  margin-bottom: 90px;
+}

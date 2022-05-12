@@ -1,18 +1,18 @@
 import {
-  CategoryModelCount,
+  CategorySizeModel,
   ProductModel,
-  SizeModelCount,
+  SizeModel,
 } from "../../interfaces/product.interface";
 
 export interface ProductStateType {
-  products: ProductModel[];
+  // products: ProductModel[];
   activePage: number;
-  selectCategory: CategoryModelCount | null;
-  selectSize: SizeModelCount | null;
+  selectCategory: CategorySizeModel | null;
+  selectSize: SizeModel | null;
 }
 
 export const initialProductState: ProductStateType = {
-  products: [],
+  // products: [],
   activePage: 1,
   selectCategory: null,
   selectSize: null,

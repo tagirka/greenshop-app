@@ -1,0 +1,49 @@
+.iconSign,
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+}
+
+.iconSign {
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+
+  color: var(--white);
+  background: var(--primary);
+
+  font-size: 28px;
+  line-height: 16px;
+}
+
+.count {
+  font-size: 20px;
+  line-height: 10px;
+}
+
+.buttonGroup {
+  display: inline-flex;
+  justify-content: space-between;
+  grid-gap: 10px;
+}
+
+.button {
+  font-size: 14px;
+}
+
+.countGroup,
+.changeCount {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.countGroup {
+  margin-bottom: 16px;
+}
+
+.countGroup {
+  grid-gap: 16px;
+}
