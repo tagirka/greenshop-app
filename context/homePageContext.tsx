@@ -3,40 +3,28 @@ import {
   Dispatch,
   PropsWithChildren,
   SetStateAction,
+  useMemo,
   useState,
 } from "react";
 import { CategorySizeModel, SizeModel } from "../interfaces/product.interface";
 
-export interface IHomeContext {
-  useActivePage: {
-    activePage: number;
-    setActivePage: Dispatch<SetStateAction<any>>;
-  };
+type IStoreCategoryState = [
+  CategorySizeModel | null,
+  Dispatch<SetStateAction<any>>
+];
+type IStoreSizeState = [SizeModel | null, Dispatch<SetStateAction<any>>];
+type IActivePageState = [number, Dispatch<SetStateAction<any>>];
 
-  useCategory: {
-    selectCategory: CategorySizeModel | null;
-    setCategory: Dispatch<SetStateAction<any>>;
-  };
-  useSize: {
-    selectSize: SizeModel | null;
-    setSize: Dispatch<SetStateAction<any>>;
-  };
+export interface IHomeContext {
+  storeMemoCategory: IStoreCategoryState;
+  storeMemoSize: IStoreSizeState;
+  storeMemoActivePage: IActivePageState;
 }
 
 export const initialHomeContext: IHomeContext = {
-  useActivePage: {
-    activePage: 1,
-    setActivePage: () => {},
-  },
-
-  useCategory: {
-    selectCategory: null,
-    setCategory: () => {},
-  },
-  useSize: {
-    selectSize: null,
-    setSize: () => {},
-  },
+  storeMemoCategory: [null, () => undefined],
+  storeMemoSize: [null, () => undefined],
+  storeMemoActivePage: [1, () => undefined],
 };
 
 export const HomeContext = createContext<IHomeContext>(initialHomeContext);
@@ -46,22 +34,26 @@ export const HomeProvider = ({ children }: PropsWithChildren<IHomeContext>) => {
   const [selectSize, setSize] = useState(null);
   const [activePage, setActivePage] = useState(1);
 
+  const storeMemoCategory = useMemo<IStoreCategoryState>(
+    () => [selectCategory, setCategory],
+    [selectCategory]
+  );
+
+  const storeMemoSize = useMemo<IStoreSizeState>(
+    () => [selectSize, setSize],
+    [selectSize]
+  );
+  const storeMemoActivePage = useMemo<IActivePageState>(
+    () => [activePage, setActivePage],
+    [activePage]
+  );
+
   return (
     <HomeContext.Provider
       value={{
-        ...initialHomeContext,
-        useActivePage: {
-          activePage,
-          setActivePage,
-        },
-        useCategory: {
-          selectCategory,
-          setCategory,
-        },
-        useSize: {
-          selectSize,
-          setSize,
-        },
+        storeMemoCategory,
+        storeMemoSize,
+        storeMemoActivePage,
       }}
     >
       {children}

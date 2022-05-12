@@ -4,7 +4,7 @@ import {
   SaleModelStrict,
   ViewProductModel,
 } from "../interfaces/product.interface";
-import { api } from "./point.api";
+import { api } from "./api/point.api";
 import { getProductsWithSelected } from "./getProductsWithSelected.api";
 import * as qs from "qs";
 

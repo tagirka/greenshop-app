@@ -1,8 +1,5 @@
 import { createContext, PropsWithChildren, useState } from "react";
-import {
-  ProductModel,
-  ViewProductModel,
-} from "../interfaces/product.interface";
+import { ProductModel } from "../interfaces/product.interface";
 
 export interface IProductContext {
   product: ProductModel | null;

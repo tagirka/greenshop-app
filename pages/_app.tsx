@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { FC } from "react";
 import Head from "next/head";
-import { AppContextProvider } from "../context/appContext";
+import { AppContextProvider, initialContext } from "../context/appContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient({
@@ -18,7 +18,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
         <title>GreenShop</title>
       </Head>
       <QueryClientProvider client={queryClient}>
-        <AppContextProvider>
+        <AppContextProvider {...initialContext}>
           <Component {...pageProps} />
         </AppContextProvider>
       </QueryClientProvider>

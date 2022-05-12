@@ -1,12 +1,12 @@
 import { FC, useContext } from "react";
 import { HomePageProps } from "./HomePage.props";
 import styles from "./HomePage.module.css";
-import Carousel from "../../components/Carousel/carousel";
-import Sidebar from "../../components/Sidebar/sidebar";
-import ListProducts from "../../components/ListProducts/ListProducts";
-import Pagination from "../../components/Pagination/paginations";
-import Detailed from "../../components/Detailed/Detailed";
-import BlogPosts from "../../components/BlogHomePage/BlogPosts";
+import Carousel from "./Carousel/carousel";
+import Sidebar from "./Sidebar/sidebar";
+import ListProducts from "./ListProducts/ListProducts";
+import Pagination from "./Pagination/paginations";
+import Detailed from "./Detailed/Detailed";
+import BlogPosts from "./BlogHomePage/BlogPosts";
 
 export const HomePageComponent: FC<HomePageProps> = ({
   products,

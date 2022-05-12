@@ -3,8 +3,9 @@ import classNames from "classnames";
 
 import styles from "./nav.module.css";
 import Link from "next/link";
-import { AppContext } from "../../../context/appContext";
+
 import { useRouter } from "next/router";
+import { router } from "next/client";
 
 const menu = [
   {
@@ -41,7 +42,7 @@ const Nav = () => {
           <li
             key={m._id}
             className={classNames(styles.navItem, {
-              [styles.navItemActive]: router.pathname.includes(m.link),
+              [styles.navItemActive]: router.pathname === m.link,
             })}
           >
             <Link href={m.link}>

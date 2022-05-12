@@ -3,7 +3,7 @@ import axios from "axios";
 import * as qs from "qs";
 
 import { ProductModel } from "../../../interfaces/product.interface";
-import { api } from "../../../lib/point.api";
+import { api } from "../../../lib/api/point.api";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const params = req.query;
@@ -15,7 +15,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const { data: products } = await axios.get<ProductModel[]>(
-      api.products.pointGetProducts(),
+      // api.products.pointGetProducts(),
+      api.outPaths.getProducts,
       {
         params: { q: Array.isArray(q) ? q : [q], _page, _limit },
         paramsSerializer: (params) =>

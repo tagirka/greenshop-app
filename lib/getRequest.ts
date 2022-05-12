@@ -1,4 +1,4 @@
-import { api } from "./point.api";
+import { api } from "./api/point.api";
 import * as qs from "qs";
 import { AxiosRequestConfig } from "axios";
 

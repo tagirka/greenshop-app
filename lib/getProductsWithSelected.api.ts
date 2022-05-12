@@ -3,8 +3,7 @@ import {
   SaleModelStrict,
   ViewProductModel,
 } from "../interfaces/product.interface";
-import { api } from "./point.api";
-import * as qs from "qs";
+import { api } from "./api/point.api";
 import { getRequest } from "./getRequest";
 
 export const getProductsWithSelected = async (
@@ -29,7 +28,7 @@ export const getProductsWithSelected = async (
 export const getViewProducts = async (
   products: ViewProductModel[]
 ): Promise<ViewProductModel[]> => {
-  return await Promise.all(setResponses(products))
+  return await Promise.all(setResponsesGetSaleProducts(products))
     .then((res) => {
       return res
         .filter((r) => r.status === 200)
@@ -51,7 +50,7 @@ export const getViewProducts = async (
 export const noSalesProducts = (products: ViewProductModel[]) =>
   products.map((p) => ({ ...p, sale: false }));
 
-const setResponses = (
+const setResponsesGetSaleProducts = (
   products: ViewProductModel[]
 ): Promise<AxiosResponse<SaleModelStrict[]>>[] => {
   return products.map((p) => {
